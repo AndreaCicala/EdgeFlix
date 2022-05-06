@@ -1,0 +1,35 @@
+.cardImg {
+  width: 200px;
+  height: 315px;
+  border-radius: 15px;
+  transition: all 0.3s ease-out 0s;
+  overflow: hidden;
+}
+.card {
+  width: 200px;
+  height: 315px;
+  border-radius: 15px;
+  transition: all 0.3s ease-out 0s;
+  position: relative;
+  top: 50px;
+  z-index: 1;
+  &:focus {
+    transform: scale(1.2);
+    transform: skewX(10);
+    z-index: 1;
+  }
+  &:hover {
+    transform: scale(1.2);
+    transform: skewX(10);
+    z-index: 1;
+  }
+  a {
+    color: white;
+    font-size: 14px;
+    left: 8px;
+    text-align: center;
+    top: 250px;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+}

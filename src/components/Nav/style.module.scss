@@ -1,0 +1,29 @@
+.nav {
+  display: flex;
+  flex-direction: row;
+  background: linear-gradient(rgb(10, 10, 10), #1c191900);
+  top: 0;
+  position: fixed;
+  width: 100%;
+  .nav_ul {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    
+
+    li {
+      list-style-type: none;
+      a {
+        text-decoration: none;
+        color: white;
+        transition: all 0.2s ease;
+      }
+      a:hover{
+        font-size: 17px;
+      }
+      a:active{
+        color: red;
+      }
+    }
+  }
+}
