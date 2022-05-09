@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { getPopularShows } from "./../../libs/utils";
 import { FaSearch } from "react-icons/fa";
-import Card from "./../../components/Card";
+import Hero from "../../components/Hero";
+import Slider from "../../components/Slider";
 import styles from "./style.module.scss";
 
 function Home() {
@@ -26,7 +27,6 @@ function Home() {
   useEffect(() => {
     getPopularShows().then((res) => {
       setMovies(res.results);
-      console.log(res);
     });
   }, []);
 
@@ -39,6 +39,7 @@ function Home() {
 
   return (
     <div>
+      <Hero />
       <div className={classes.join(" ")}>
         <label htmlFor="search"></label>
         <FaSearch className={styles.search_box__icon} onClick={toggleSearch} />
@@ -52,13 +53,7 @@ function Home() {
           onChange={(e) => setSearchInput(e.target.value)}
         ></input>
       </div>
-      <div className={styles.popular_series}>
-        {results.map((movie, index) => (
-          <div key={index}>
-            <Card movie={movie} />
-          </div>
-        ))}
-      </div>
+      <Slider title={"Popular series"} results={results} />
     </div>
   );
 }

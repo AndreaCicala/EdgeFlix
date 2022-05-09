@@ -9,21 +9,17 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
-    
+  }
+}
 
-    li {
-      list-style-type: none;
-      a {
-        text-decoration: none;
-        color: white;
-        transition: all 0.2s ease;
-      }
-      a:hover{
-        font-size: 17px;
-      }
-      a:active{
-        color: red;
-      }
+.link {
+  text-decoration: none;
+  color: white;
+  transition: all 0.2s ease;
+  &:hover {
+    font-size: 17px;
+    &:active {
+      color: red;
     }
   }
 }

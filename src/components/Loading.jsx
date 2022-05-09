@@ -1,6 +1,12 @@
+import styles from "./style.module.scss";
+
 function Loading(){
     return (
-        <div>Loading</div>
+        <div className={styles.loading}>
+        LOADING
+            <div className={styles.div1}>
+            </div>
+        </div>
     )
 }
 

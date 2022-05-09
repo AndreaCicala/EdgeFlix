@@ -1,28 +1,24 @@
 
+import { Link } from "react-router-dom";
 import styles from "./style.module.scss";
 
-function Nav() {
+function Nav(props) {
+
   return (
     <div className={styles.nav}>
-      <a href="https://fontmeme.com/netflix-font/">
+      <Link to={"/"}>
         <img
           src="https://fontmeme.com/permalink/220505/5fffe0dd23c9099d1b4842a17790e97d.png"
           alt="logo"
           border="0"
           width={"150px"}
         ></img>
-      </a>
+      </Link>
       <nav className={styles.nav_bar}>
         <ul className={styles.nav_ul}>
-          <li>
-            <a href="#Home">Main TV Series</a>
-          </li>
-          <li>
-            <a href="#topRated">Top Rated TV Shows</a>
-          </li>
-          <li>
-            <a href="#popularTvShows">Popular TV Shows</a>
-          </li>
+          <Link to={`/Homepage`} className={styles.link}>Main TV Series</Link>
+          <Link to={`/Homepage`} className={styles.link}>Popular TV Series</Link>
+         
         </ul>
       </nav>
     </div>

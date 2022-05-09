@@ -3,6 +3,7 @@ import { getHomePageBg } from "../../libs/utils";
 import styles from "./style.module.scss";
 
 function Hero() {
+
   const [backgroundImg, setBackgroundImg] = useState([]);
 
   useEffect(() => {
