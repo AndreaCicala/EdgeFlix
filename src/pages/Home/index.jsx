@@ -39,7 +39,7 @@ function Home() {
 
   return (
     <div>
-      <Hero />
+      <Hero/>
       <div className={classes.join(" ")}>
         <label htmlFor="search"></label>
         <FaSearch className={styles.search_box__icon} onClick={toggleSearch} />

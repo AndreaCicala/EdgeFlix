@@ -1,5 +1,43 @@
-.table{
+p {
+  font-size: 15px;
+  color: white;
+}
+
+.table {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+    position: relative;
+    height: auto;
+    min-height: 100px;
     width: 20%;
-    background-color: #1c1919 ;
-    color: white;
+    min-width: 10%;
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: rgba(238, 238, 238, 0.272);
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+    text-align: center;
+    border-radius: 15px;
+    margin-top: 55px;
+
+  .season {
+    font-size: 20px;
+    font-weight: 600;
+    color: #88B04B;
+    -webkit-text-stroke: 0.7px black;
+  }
+  .episode {
+    font-size: 25px;
+    font-weight: 600;
+    color: #88B04B;
+    -webkit-text-stroke: 0.7px black;
+  }
+  .aired{
+    font-size: 20px;
+    font-weight: 600;
+    color: #88B04B;
+    -webkit-text-stroke: 0.7px black;
+  }
 }

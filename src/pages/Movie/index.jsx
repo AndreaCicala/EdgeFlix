@@ -6,7 +6,9 @@ import DataTable from "../../components/Table";
 import YoutubeEmbed from "../../components/Video";
 import styles from "./style.module.scss";
 
-const Movie = (props) => {
+
+
+const Movie = () => {
   const { id } = useParams();
 
   const myRef = useRef(null);
@@ -14,20 +16,20 @@ const Movie = (props) => {
   const executeScroll = () => myRef.current.scrollIntoView();
   const executeScroll2 = () => myRef2.current.scrollIntoView();
 
-  const [movies, setMovies] =useState("")
+  const [movies, setMovies] =useState([])
   const [title, setTitle] = useState("");
   const [poster, setPoster] = useState("");
   const [description, setDescription] = useState("");
   const [genres, setGenres] = useState("");
-
-
+  
   const getData = async () => {
     const data = await getTvDetails(`/${id}`);
     setMovies(data.seasons);
     setTitle(data.name);
     setPoster(data.backdrop_path);
     setDescription(data.overview);
-    setGenres(data.genres.map((item) => item.name).join(", "));
+    setGenres(data.genres.map((item) => item.name).join(", ")
+    );
   };
 
   /* eslint-disable */
@@ -51,11 +53,10 @@ const Movie = (props) => {
           className={styles.Img}
         />
         <p className={styles.desc}>{description}</p>
-        <p className={styles.genres}>{genres}</p>
-        <DataTable movies={movies}/>
+        <p className={styles.genres}>Genres: {genres}</p>
+       {/* <DataTable movies={movies}/> */}
 
-          {<FaArrowUp onClick={executeScroll2} className={styles.dets_btn}/>}
-  
+          {<FaArrowUp onClick={executeScroll2} className={styles.up_btn}/>}
       </div>
     </>
   );

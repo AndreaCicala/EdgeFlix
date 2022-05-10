@@ -4,6 +4,7 @@ import styles from "./style.module.scss";
 
 const Card = (props) => {
   const { id, name, poster_path } = props.movie;
+
   const [hover, setHover] = useState(false);
   const toggleHover = () => setHover(!false);
 

@@ -2,13 +2,13 @@ import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Nav from "./components/Nav";
 import Loading from "./components/Loading";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer"
 import styles from "./style.module.scss";
 
 function App() {
   const Home = lazy(() => import("./pages/Home"));
   const Movie = lazy(() => import(`./pages/Movie/`));
-
+  
   return (
     <Router>
       <Routes>
@@ -40,8 +40,8 @@ function App() {
       </Routes>
       <div className={styles.app}>
         <Nav className={styles.nav}/>
-        <Footer />
       </div>
+    <Footer/>
     </Router>
   );
 };

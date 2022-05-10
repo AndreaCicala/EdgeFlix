@@ -1,8 +1,7 @@
-
 import { Link } from "react-router-dom";
 import styles from "./style.module.scss";
 
-function Nav(props) {
+function Nav() {
 
   return (
     <div className={styles.nav}>
@@ -16,9 +15,8 @@ function Nav(props) {
       </Link>
       <nav className={styles.nav_bar}>
         <ul className={styles.nav_ul}>
-          <Link to={`/Homepage`} className={styles.link}>Main TV Series</Link>
-          <Link to={`/Homepage`} className={styles.link}>Popular TV Series</Link>
-         
+          <Link to={`Home`} className={styles.link}>Main TV Series</Link>
+          <Link to={`Home`} className={styles.link}>Popular TV Series</Link>
         </ul>
       </nav>
     </div>

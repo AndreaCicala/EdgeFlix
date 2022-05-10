@@ -5,7 +5,6 @@ import Card from "../Card";
 import styles from "./style.module.scss";
 
 const Slider = (props) => {
-  console.log(props)
   const scrl = useRef(null);
   const slide = (cardWidth = 200) => {
     const numberVisibleCard = Math.floor(scrl.current.offsetWidth / cardWidth);
@@ -21,7 +20,6 @@ const Slider = (props) => {
         {props.results.map((movie, index) => (
           <div key={index}>
             <Card movie={movie} />
-            
           </div>
         ))}
       </div>

@@ -1,20 +1,19 @@
 .cardImg {
   width: 200px;
-  height: 315px;
+  height: 300px;
   border-radius: 15px;
   transition: all 0.3s ease-out 0s;
   overflow: hidden;
 }
 .card {
   width: 200px;
-    height: 315px;
-    border-radius: 15px;
-    transition: all 0.3s ease-out 0s;
-    position: relative;
-    top: 50px;
-    z-index: 1;
-    margin-top: 20px;
-  
+  border-radius: 15px;
+  transition: all 0.3s ease-out 0s;
+  position: relative;
+  top: 50px;
+  z-index: 1;
+  margin-top: 20px;
+
   &:focus {
     transform: scale(1.2);
     transform: skewX(10);
@@ -34,24 +33,22 @@
     border-radius: 5px;
     text-decoration: none;
   }
-  .cardTitle{
+  .cardTitle {
     position: absolute;
     color: white;
     font-size: 14px;
-    left: 8px;
+    left: 50%;
+    transform: translate(-50%);
     text-align: center;
-    top: 300px;
-    background: #00000066;
+    top: 290px;
+    background: #0000004d;
     border-radius: 5px;
     display: none;
     z-index: 1;
   }
-  .titleHover{
+  .titleHover {
     display: block;
     z-index: 1;
     transition: all 1s ease-out;
-   }
- 
+  }
 }
-
-
