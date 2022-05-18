@@ -6,8 +6,6 @@ import DataTable from "../../components/Table";
 import YoutubeEmbed from "../../components/Video";
 import styles from "./style.module.scss";
 
-
-
 const Movie = () => {
   const { id } = useParams();
 
@@ -54,7 +52,7 @@ const Movie = () => {
         />
         <p className={styles.desc}>{description}</p>
         <p className={styles.genres}>Genres: {genres}</p>
-       {/* <DataTable movies={movies}/> */}
+          <DataTable movies={movies}/>
 
           {<FaArrowUp onClick={executeScroll2} className={styles.up_btn}/>}
       </div>
