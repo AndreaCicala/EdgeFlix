@@ -1,17 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getPopularShows } from "./../../libs/utils";
 import { FaSearch } from "react-icons/fa";
 import styles from "./style.module.scss";
-import Slider from "../Slider";
 
-function Nav(results) {
-  // console.log(results)
+function Nav(props) {
+  
   const [searchInput, setSearchInput] = useState("");
   const [iconActive, setIconActive] = useState("false");
   const toggleSearch = () => setIconActive((value) => !value);
-  const [movies, setMovies] = useState({});
-  // const [results, setResults] = useState([]);
 
   const classes = [
     styles.search_box,
@@ -26,19 +22,12 @@ function Nav(results) {
   ];
 
   useEffect(() => {
-    setMovies(results)
-  },[])
-
-  // useEffect(() => {
-  //   const data = results.filter((movie) =>
-  //   movie.name.toLowerCase().includes(searchInput.toLowerCase())
-  // );
-  // setResults(data);
-  // },[searchInput]);
-
+    props.function(searchInput);
+  },[searchInput])
+  
   return (
+    
     <div className={styles.nav}>
-      <Slider title={"Popular series"} results={movies} />
       <div>
         <Link to={"/"}>
           <img
@@ -73,6 +62,7 @@ function Nav(results) {
         ></input>
       </div>
     </div>
+  
   );
 }
 
