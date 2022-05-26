@@ -23,6 +23,7 @@ function Nav(props) {
 
   useEffect(() => {
     props.function(searchInput);
+    /* eslint-disable */
   },[searchInput])
   
   return (
@@ -40,7 +41,7 @@ function Nav(props) {
       </div>
       <nav className={styles.nav_bar}>
         <ul className={styles.nav_ul}>
-          <Link to={`Home`} className={styles.link}>
+          <Link to={`/`} className={styles.link}>
             Main TV Series
           </Link>
           <Link to={`Home`} className={styles.link}>
@@ -62,7 +63,6 @@ function Nav(props) {
         ></input>
       </div>
     </div>
-  
   );
 }
 

@@ -1,10 +1,12 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
-import { getTvDetails } from "../../libs/utils";
+import { Link, useParams } from "react-router-dom";
+import { getTvDetails, getRecommendedSeries } from "../../libs/utils";
 import { FaArrowUp } from "react-icons/fa";
 import DataTable from "../../components/Table";
+import RecommendedSlider from "../../components/RecommendedSlider";
 import YoutubeEmbed from "../../components/Video";
 import styles from "./style.module.scss";
+
 
 const Movie = () => {
   const { id } = useParams();
@@ -14,29 +16,39 @@ const Movie = () => {
   const executeScroll = () => myRef.current.scrollIntoView();
   const executeScroll2 = () => myRef2.current.scrollIntoView();
 
-  const [movies, setMovies] =useState([])
+  const [results, setResults] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [title, setTitle] = useState("");
   const [poster, setPoster] = useState("");
   const [description, setDescription] = useState("");
   const [genres, setGenres] = useState("");
-  
+
   const getData = async () => {
     const data = await getTvDetails(`/${id}`);
     setMovies(data.seasons);
     setTitle(data.name);
     setPoster(data.backdrop_path);
     setDescription(data.overview);
-    setGenres(data.genres.map((item) => item.name).join(", ")
-    );
+    setGenres(data.genres.map((item) => item.name).join(", "));
   };
+
+  useEffect(() => {
+    getRecommendedSeries(`/${id}`).then((res) => {
+      setResults(res.results);
+    });
+  }, []);
 
   /* eslint-disable */
   useEffect(() => {
     getData();
+    getRecommendedSeries();
   }, []);
 
   return (
     <>
+      <Link to={`/`} className={styles.link}>
+        Main TV Series
+      </Link>
       <button onClick={executeScroll} ref={myRef2} className={styles.dets_btn}>
         Go to Details{" "}
       </button>
@@ -52,9 +64,9 @@ const Movie = () => {
         />
         <p className={styles.desc}>{description}</p>
         <p className={styles.genres}>Genres: {genres}</p>
-          <DataTable movies={movies}/>
-
-          {<FaArrowUp onClick={executeScroll2} className={styles.up_btn}/>}
+        {/* <DataTable movies={movies} /> */}
+        {<FaArrowUp onClick={executeScroll2} className={styles.up_btn} />}
+        <RecommendedSlider title={"Recommended Series"} results={results} />
       </div>
     </>
   );

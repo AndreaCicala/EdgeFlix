@@ -1,18 +1,9 @@
+.card,
 .cardImg {
   width: 200px;
-  height: 300px;
+  height: 280px;
   border-radius: 15px;
   transition: all 0.3s ease-out 0s;
-  overflow: hidden;
-}
-.card {
-  width: 200px;
-  border-radius: 15px;
-  transition: all 0.3s ease-out 0s;
-  position: relative;
-  top: 50px;
-  z-index: 1;
-  margin-top: 20px;
 
   &:focus {
     transform: scale(1.2);
@@ -20,7 +11,7 @@
     z-index: 1;
   }
   &:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transform: skewX(10);
     z-index: 1;
   }
@@ -33,22 +24,24 @@
     border-radius: 5px;
     text-decoration: none;
   }
+
   .cardTitle {
+    display: none;
     position: absolute;
     color: white;
     font-size: 14px;
     left: 50%;
+    top: 280px;
     transform: translate(-50%);
     text-align: center;
-    top: 290px;
     background: #0000004d;
     border-radius: 5px;
-    display: none;
+    transition: all 1s ease-out;
     z-index: 1;
   }
   .titleHover {
     display: block;
     z-index: 1;
-    transition: all 1s ease-out;
+    
   }
 }

@@ -47,6 +47,33 @@ const getTvDetails = async (id) => {
   }
 };
 
+const getUpcomingMovies = async (id) => {
+  const res = await fetch(getURL(`tv/airing_today`) + "&page=1", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (res.status >= 200 && res.status <= 299) {
+    return await res.json();
+  }
+};
+
+const getLatest = async (id) => {
+  const res = await fetch(getURL(`tv/latest`), {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (res.status >= 200 && res.status <= 299) {
+    return await res.json();
+  }
+};
+
+
 //FETCH CALL FOR BACKGROUND IMAGE
 const getHomePageBg = async () => {
   const res = await fetch(getURL(`tv/${1429}`), {
@@ -103,8 +130,10 @@ export  {
   getPopularShows,
   getTopRatedTv,
   getTvDetails,
+  getLatest,
   getHomePageBg,
   getSeriesBg,
   getRecommendedSeries,
   getVideos,
+  getUpcomingMovies
 };

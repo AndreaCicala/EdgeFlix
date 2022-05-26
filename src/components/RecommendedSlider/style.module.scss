@@ -1,21 +1,24 @@
+
+
 .arrow_div{
-  visibility: none;
-  position: sticky;
+  width: 100%;
+  position: absolute;
   z-index: 3;
+  bottom: -755px;
 }
 
-.movie_series {
+.recommended_series {
   display: flex;
     flex-direction: row;
     gap: 25px;
     position: relative;
     height: 375px;
     overflow: hidden;
-    top: -190px;
+    top: 210px;
     padding-top: 35px;
 }
 
-.movie_title {
+.recommended_title {
   color: white;
   position: absolute;
   top: -35px;

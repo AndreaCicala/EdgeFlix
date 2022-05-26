@@ -1,13 +1,13 @@
+import { style } from "@mui/system";
 import { useEffect, useRef, useState } from "react";
-import ArrowRight from "../ArrowRight";
-import ArrowLeft from "../ArrowLeft";
+import Arrow from "../Arrow";
 import Card from "../Card";
 import styles from "./style.module.scss";
 
 const Slider = (props) => {
-  const data = props.results
-  const [movieProps, setMovieProps] = useState([]);
-  const [moviesFiltered, setMoviesFiltered] = useState([]);
+  console.log(props)
+  const moviesData = props.results;
+  const [movies, setMovies] = useState([]);
 
   const scrl = useRef(null);
   const slide = (cardWidth = 200) => {
@@ -16,34 +16,37 @@ const Slider = (props) => {
   };
 
   useEffect(() => {
-    setMovieProps(data);
-    setMoviesFiltered(data);
-  }, [data]);
+    setMovies(moviesData);
+  }, [moviesData]);
 
-  
-  useEffect(() => {
-    const filtered = movieProps.filter((movie) =>
-    movie.name.toLowerCase().includes(props.returnedData.toLowerCase())
-    );
-    setMoviesFiltered(filtered);
-  }, [props.returnedData]);
-  
-  
+  // useEffect(() => {
+  //   if (props.searchQuery.length === 0){
+  //     setMovies(moviesData)
+  //   } else {
+  //     const filtered = movies.filter((movie) =>
+  //       movie.name.toLowerCase().includes(props.searchQuery.toLowerCase())
+  //       );
+  //     console.log(filtered)
+  //     setMovies(filtered);
+  //     /* eslint-disable */
+  //   }
+  // }, [props.searchQuery]);
+
   return (
-    <>
-      <ArrowRight cb={() => (scrl.current.scrollLeft += slide())} />
-      <ArrowLeft cb={() => (scrl.current.scrollLeft += -1 * slide())} />
-      <div className={styles.popular_series} ref={scrl}>
-        <h2 className={styles.popular_title}>Popular TV Shows</h2>
-        {Array.isArray(moviesFiltered) &&
-          moviesFiltered &&
-          moviesFiltered.map((movie, index) => (
-            <div key={index}>
-              <Card movie={movie} />
-            </div>
-          ))}
+    <div>
+      <div className={styles.arrow_div}>
+        <Arrow
+          dx={() => (scrl.current.scrollLeft += slide())}
+          sx={() => (scrl.current.scrollLeft += -1 * slide())}
+        />
       </div>
-    </>
+      <div className={styles.movie_series} ref={scrl}>
+        <h2 className={styles.movie_title}>{props.title}</h2>
+        {movies.map((movie, index) => (
+          <Card movie={movie} key={index} />
+        ))}
+      </div>
+    </div>
   );
 };
 
