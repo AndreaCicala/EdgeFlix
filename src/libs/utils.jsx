@@ -2,8 +2,10 @@ const baseURL = "https://api.themoviedb.org/3";
 const apiKey = "f7eae006391996939f7a8ef3e656c4d2";
 const language = "en-US";
 
-const getURL = (url = "") =>
-  `${baseURL}/${url}?api_key=${apiKey}&language=${language}`;
+
+const getURL = (url = "") => (
+  `${baseURL}/${url}?api_key=${apiKey}&language=${language}`
+);
 
 //FETCH CALL FOR POPULAR TV SHOWS\\
 const getPopularShows = async () => {
@@ -100,6 +102,22 @@ const getSeriesBg = async (id) => {
   }
 };
 
+//https://api.themoviedb.org/3/search/tv?api_key=<<api_key>>&language=en-US&page=1&include_adult=false
+
+const searchTvShows = async (query) => {
+  query = encodeURIComponent(query);
+  const res = await fetch(getURL(`search/tv`) + `&query=${query}` + "&include_adult=false", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (res.status >= 200 && res.status <= 299) {
+    return await res.json();
+  }
+};
+
 //FETCH CALL FOR SIMILAR SERIES
 const getRecommendedSeries = async (id) => {
   const res = await fetch(getURL(`tv/${id}/similar`) + "&page=1", {
@@ -135,5 +153,6 @@ export  {
   getSeriesBg,
   getRecommendedSeries,
   getVideos,
-  getUpcomingMovies
+  getUpcomingMovies,
+  searchTvShows
 };

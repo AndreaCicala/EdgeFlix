@@ -6,6 +6,7 @@ import DataTable from "../../components/Table";
 import RecommendedSlider from "../../components/RecommendedSlider";
 import YoutubeEmbed from "../../components/Video";
 import styles from "./style.module.scss";
+import Footer from "../../components/Footer";
 
 
 const Movie = () => {
@@ -33,18 +34,18 @@ const Movie = () => {
   };
 
   useEffect(() => {
+    getData();
     getRecommendedSeries(`/${id}`).then((res) => {
       setResults(res.results);
     });
-  }, []);
+  }, [id]);
 
-  /* eslint-disable */
-  useEffect(() => {
-    getData();
-    getRecommendedSeries();
-  }, []);
+  const dscClass = [description === "" ? "hide" : styles.desc];
+  const genresClass = [genres === "" ? "hide" : styles.genres];
+
 
   return (
+
     <>
       <Link to={`/`} className={styles.link}>
         Main TV Series
@@ -54,16 +55,16 @@ const Movie = () => {
       </button>
       <YoutubeEmbed />
       <div className={styles.detail}>
-        <p className={styles.name} ref={myRef}>
-          {title}
-        </p>
         <img
           src={"https://image.tmdb.org/t/p/original/" + poster}
           alt={""}
           className={styles.Img}
         />
-        <p className={styles.desc}>{description}</p>
-        <p className={styles.genres}>Genres: {genres}</p>
+        <p className={styles.name} ref={myRef}>
+          {title}
+        </p>
+        <p className={dscClass}>{description}</p>
+        <p className={genresClass}><i className={genresClass}>Genres: </i>{genres}</p>
         {/* <DataTable movies={movies} /> */}
         {<FaArrowUp onClick={executeScroll2} className={styles.up_btn} />}
         <RecommendedSlider title={"Recommended Series"} results={results} />
