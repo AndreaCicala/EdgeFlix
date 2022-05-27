@@ -23,8 +23,8 @@ function Nav(props) {
   useEffect(() => {
     props.function(searchInput);
     /* eslint-disable */
-  },[searchInput])
-  
+  }, [searchInput])
+
   return (
     <div className={styles.nav}>
       <div>
