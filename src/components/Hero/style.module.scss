@@ -1,5 +1,30 @@
-.imgHero{
+.imgHero {
     width: 100%;
     position: relative;
     z-index: -2;
+}
+
+.btn {
+    position: relative;
+    width: 230px;
+    height: 60px;
+    top: -300px;
+    left: 80px;
+    border: 2px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 20px;
+    padding: 10px 60px;
+    border-radius: 5px;
+    margin: 10px 0px;
+    cursor: pointer;
+    transition: all 00ms ease;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.119);
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
 }

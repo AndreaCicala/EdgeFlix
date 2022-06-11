@@ -4,7 +4,6 @@ import { FaSearch } from "react-icons/fa";
 import styles from "./style.module.scss";
 
 function Nav(props) {
-  
   const [searchInput, setSearchInput] = useState("");
   const [iconActive, setIconActive] = useState("false");
   const toggleSearch = () => setIconActive((value) => !value);
@@ -24,10 +23,9 @@ function Nav(props) {
   useEffect(() => {
     props.function(searchInput);
     /* eslint-disable */
-  },[searchInput])
-  
+  }, [searchInput])
+
   return (
-    
     <div className={styles.nav}>
       <div>
         <Link to={"/"}>

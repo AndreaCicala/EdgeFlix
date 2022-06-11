@@ -1,16 +1,18 @@
-.footer {
-  font-size: 0.7em;
-  text-align: center;
-  font-style: italic;
-  color: white;
-  position: relative;
-  top: 12vh;
-  bottom: -100;
-  width: 100%;
-  color: white;
-  text-align: center;
+.span_footer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: grey;
+  font-size: 12px;
+ 
+}
 
-    hr {
-      border-top: 1px solid #ddd;
-    }
-  }
+.andreacicala_div{
+  display: flex;
+  flex-direction: column;
+  color: grey;
+  font-size: 11px;
+  margin-bottom: 20px;
+  align-items: center;
+  gap: 15px;
+}

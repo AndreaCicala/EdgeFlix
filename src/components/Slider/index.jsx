@@ -5,7 +5,7 @@ import Card from "../Card";
 import styles from "./style.module.scss";
 
 const Slider = (props) => {
-  console.log(props)
+ 
   const moviesData = props.results;
   const [movies, setMovies] = useState([]);
 
@@ -33,7 +33,7 @@ const Slider = (props) => {
   // }, [props.searchQuery]);
 
   return (
-    <div>
+    <>
       <div className={styles.arrow_div}>
         <Arrow
           dx={() => (scrl.current.scrollLeft += slide())}
@@ -46,7 +46,7 @@ const Slider = (props) => {
           <Card movie={movie} key={index} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 

@@ -17,7 +17,7 @@ const RecommendedSlider = ({ results, title }) => {
   }, [results]);
 
   return (
-    <div className={styles.movies}>
+    <>
       <div className={styles.arrow_div}>
         <Arrow
           dx={() => (scrl.current.scrollLeft += slide())}
@@ -30,7 +30,7 @@ const RecommendedSlider = ({ results, title }) => {
           <Card movie={movie} key={index} />
         ))}
       </div>
-    </div>
+    </>
   );
 };
 
