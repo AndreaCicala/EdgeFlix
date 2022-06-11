@@ -1,10 +1,10 @@
 
 
 .arrow_div{
-  width: 100%;
-  position: absolute;
+  position: relative;
+  top: 36em;
+  height: 0;
   z-index: 3;
-  bottom: -755px;
 }
 
 .recommended_series {
@@ -12,9 +12,9 @@
     flex-direction: row;
     gap: 25px;
     position: relative;
-    height: 375px;
+    height: 345px;
     overflow: hidden;
-    top: 210px;
+    top: 320px;
     padding-top: 35px;
 }
 

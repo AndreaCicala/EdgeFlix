@@ -34,7 +34,6 @@ function Nav(props) {
             alt="logo"
             border="0"
             width={"150px"}
-            ciao
           ></img>
         </Link>
       </div>

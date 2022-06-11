@@ -11,7 +11,6 @@ import Footer from "../../components/Footer";
 
 const Movie = () => {
   const { id } = useParams();
-
   const myRef = useRef(null);
   const myRef2 = useRef(null);
   const executeScroll = () => myRef.current.scrollIntoView();
@@ -23,6 +22,9 @@ const Movie = () => {
   const [poster, setPoster] = useState("");
   const [description, setDescription] = useState("");
   const [genres, setGenres] = useState("");
+
+  const dscClass = [description === "" ? "hide" : styles.desc];
+  const genresClass = [genres === "" ? "hide" : styles.genres];
 
   const getData = async () => {
     const data = await getTvDetails(`/${id}`);
@@ -39,10 +41,6 @@ const Movie = () => {
       setResults(res.results);
     });
   }, [id]);
-
-  const dscClass = [description === "" ? "hide" : styles.desc];
-  const genresClass = [genres === "" ? "hide" : styles.genres];
-
 
   return (
 
@@ -68,6 +66,9 @@ const Movie = () => {
         {/* <DataTable movies={movies} /> */}
         {<FaArrowUp onClick={executeScroll2} className={styles.up_btn} />}
         <RecommendedSlider title={"Recommended Series"} results={results} />
+        <div className={styles.footer}>
+          <Footer />
+        </div>
       </div>
     </>
   );
