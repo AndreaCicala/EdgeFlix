@@ -34,6 +34,4 @@ const RecommendedSlider = ({ results, title }) => {
   );
 };
 
-
-
 export default RecommendedSlider;
